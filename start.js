@@ -32,3 +32,27 @@ callFunction( function(name){
     console.log("Bye "+name);
 },'Kobe');
 
+// ------ 模块调用 ------
+
+var obj = require('./count')
+
+console.log(obj.count(['java','ruby','go','vue']));
+
+obj.a()
+
+// ------- 读取文件 -----------
+
+var fs = require('fs')
+
+// 同步执行
+var readMe = fs.readFileSync("README.txt","utf8");
+console.log(readMe)
+
+fs.writeFileSync("abc.txt",readMe)
+
+// 异步执行
+var read = fs.readFile("abc.txt","utf8",function(err,data){
+    console.log(data)
+})
+
+console.log("finished")
