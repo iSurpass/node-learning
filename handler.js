@@ -17,9 +17,16 @@ function skr(response){
     response.end('Juniors Skr ~')
 }
 
+function api_records(res, params) {
+    console.log('api_records')
+    res.writeHead(200, { 'Content-Type': 'application/json' })
+    res.end(JSON.stringify(params))
+}
+
 // --------- 导出 -----------
 
 module.exports= {
     home:home,
-    skr:skr
+    skr:skr,
+    api_records:api_records
 };
